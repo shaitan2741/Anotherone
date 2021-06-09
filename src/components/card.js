@@ -20,20 +20,20 @@ class Cards extends Component{
             <div style={{color:"white"}}>
             
                 <CardSubtitle><RiSunFill color="yellow" />&nbsp;OPEN</CardSubtitle>
-                <h2>﹩{this.props.open[0]}</h2>
+                <h2>{this.props.currency}{this.props.open[0]}</h2>
                 <br />
                 <div className="row">
                     <div className="col xs-3">
                         <p style={{fontFamily:'sans-serif'}}><MdTrendingUp color="green" size="20" />&nbsp;High</p>
-                        <p>﹩{this.props.high[0] }</p>
+                        <p>{this.props.currency}{this.props.high[0] }</p>
                     </div>
                     <div className="col xs-3" >
                         <p style={{fontFamily:'sans-serif'}}><MdTrendingDown color="red" size="20" />&nbsp;Low</p>
-                        <p>﹩{this.props.low[0]}</p>
+                        <p>{this.props.currency}{this.props.low[0]}</p>
                     </div>
                     <div className="col xs-3" >
                         <p style={{fontFamily:'sans-serif'}}><RiMoonClearFill color="silver" size="20" />&nbsp;Close</p>
-                        <p>﹩{this.props.close[0]}</p>
+                        <p>{this.props.currency}{this.props.close[0]}</p>
                     </div>
 
                 </div>

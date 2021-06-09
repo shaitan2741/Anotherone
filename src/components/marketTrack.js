@@ -24,7 +24,8 @@ class MarketTrack extends Component {
             wholeLow:[],
             wholeHigh:[],
             wholeClose:[],
-            articles:[],                                                                
+            articles:[],   
+            currency_ini:'$',                                                             
             presetLow:[],
             stock_Name:'FB',
             initial_Name:'FB',
@@ -49,13 +50,16 @@ class MarketTrack extends Component {
         this.handleClick(true);
         this.handleChartTable(true);
         var symbol=event.target.value;
+        var symbol1=symbol.slice(0,-3);
         console.log('what',symbol);
         var i;
         var k;
         var index;
-        for(i=0;i<symbol.length;i++){
-            if(symbol[i]==='-'){
-                if(symbol[i+4]===':'){
+        var cur;
+        var j;
+        for(i=0;i<symbol1.length;i++){
+            if(symbol1[i]==='-'){
+                if(symbol1[i+4]===':'){
                     k=i+4;
                     break;
                 }
@@ -67,11 +71,19 @@ class MarketTrack extends Component {
                 
             }
         }
+        for(j=0;j<symbol.length;j++){
+            if(symbol[j]===')'){
+                cur=j;
+                break;
+            }
+        }
+
         //callback function......
         this.setState({
-            stock_Name: symbol.substring(i+1),
-            display_name:symbol.substring(0,i),
-            initial_Name: symbol.substring(k+1)
+            stock_Name: symbol1.substring(i+1),
+            display_name:symbol1.substring(0,i),
+            initial_Name: symbol1.substring(k+1),
+            currency_ini:symbol[j-1],
         }, () => {
             this.Stocker()
             this.getNews()
@@ -198,7 +210,7 @@ class MarketTrack extends Component {
                                         <Input className="inputBrand" type="select" name="carbrand" id="carBrand" onChange={this.handleChange} style={{background_color:'red'}} >
                                             <option>Please select a stock</option>
                                             {StockUtils.map((data) => {
-                                            return <option key={data.id}>{data.name}-{data.symbol}</option>
+                                            return <option key={data.id}>{data.name}-{data.symbol}({data.currency})</option>
                                             })}
                                         </Input>
                                     </div>
@@ -219,7 +231,7 @@ class MarketTrack extends Component {
                         <h2 style={{align: 'left' ,color:"white",style:'underline'}}>{this.state.display_name}</h2>
 
                                             <hr  style={{background: "grey",}} />
-                                            {loading ?<Loading /> :<Cards  open={this.state.y_val} close={this.state.wholeClose} high={this.state.wholeHigh} low={this.state.wholeLow} date={this.state.presentDate} />}
+                                            {loading ?<Loading /> :<Cards  open={this.state.y_val} close={this.state.wholeClose} high={this.state.wholeHigh} low={this.state.wholeLow} date={this.state.presentDate} currency={this.state.currency_ini} />}
                                             <hr style={{background: "grey"}}></hr>
                     </div>
                 </div>
@@ -233,7 +245,7 @@ class MarketTrack extends Component {
                         <div className="col-md-2"></div>
                         
                             <h2 className="font-italic text-white text-uppercase" style={{fontStyle:'italic',paddingBottom:"10px"}}>Trends</h2>
-                            {loading?<Loading />:<StockTable openVal={this.state.y_val} closeVal={this.state.wholeClose} highVal={this.state.wholeHigh} dateVal={this.state.x_val} lowVal={this.state.wholeLow}/>}
+                            {loading?<Loading />:<StockTable openVal={this.state.y_val} closeVal={this.state.wholeClose} highVal={this.state.wholeHigh} dateVal={this.state.x_val} lowVal={this.state.wholeLow} currency={this.state.currency_ini} />}
                         </div>
                     </div>
                     <div className="col-md-5 col-sm-12">

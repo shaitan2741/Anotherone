@@ -45,7 +45,7 @@ class StockTable extends Component {
                                             <hr style={{background: "grey"}}/>
                                             {this.props.openVal.slice(0,noOfOpen).map((item) => {
                                                     return (
-                                                    <div style={{color: '#8d93ab',fontSize:"1.8vmin",padding: '9px'}}>{parseFloat(item).toFixed( 2 )}</div>
+                                                    <div style={{color: '#8d93ab',fontSize:"1.8vmin",padding: '9px'}}>{this.props.currency}{parseFloat(item).toFixed( 2 )}</div>
                                                     )
                                                     })
                                                 }
@@ -57,7 +57,7 @@ class StockTable extends Component {
 
                                             {this.props.highVal.slice(0,noOfHigh).map((item) => {
                                                     return (
-                                                    <div style={{marginBottom:'100',fontSize:"1.8vmin",padding: '9px',color: '#8d93ab'}}>{parseFloat(item).toFixed( 2 )}</div>
+                                                    <div style={{marginBottom:'100',fontSize:"1.8vmin",padding: '9px',color: '#8d93ab'}}>{this.props.currency}{parseFloat(item).toFixed( 2 )}</div>
                                                     )
                                                     })
                                                 }
@@ -68,7 +68,7 @@ class StockTable extends Component {
                                             <hr style={{background: "grey"}}/>
                                             {this.props.lowVal.slice(0,noOfLow).map((item) => {
                                                     return (
-                                                    <div style={{color: '#8d93ab', margin:'10',fontSize:"1.8vmin",padding: '9px'}}>{parseFloat(item).toFixed( 2 )}</div>
+                                                    <div style={{color: '#8d93ab', margin:'10',fontSize:"1.8vmin",padding: '9px'}}>{this.props.currency}{parseFloat(item).toFixed( 2 )}</div>
                                                     )
                                                     })
                                                 }
@@ -79,7 +79,7 @@ class StockTable extends Component {
                                             <hr style={{background: "grey"}}/>
                                             {this.props.closeVal.slice(0,noOfClose).map((item) => {
                                                     return (
-                                                    <div style={{color: '#8d93ab',fontSize:"1.8vmin",padding: '9px',textAlign: 'center'}}>{parseFloat(item).toFixed( 2 )}</div>
+                                                    <div style={{color: '#8d93ab',fontSize:"1.8vmin",padding: '9px',textAlign: 'center'}}>{this.props.currency}{parseFloat(item).toFixed( 2 )}</div>
                                                     )
                                                     })
                                                 }
