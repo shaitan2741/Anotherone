@@ -91,6 +91,42 @@ const StockUtils=[
         symbol: "BK",
         name: "The Bank of New York Mellon Corporation",
         
+    },
+    {
+        id:16,
+        symbol: "BSE:TATAMOTORS",
+        name: "Tata Motors",
+        
+    },
+    {
+        id:17,
+        symbol: "BSE:ADANIPOWER",
+        name: "Adani Power Ltd",
+        
+    },
+    {
+        id:18,
+        symbol: "BSE:VEDL",
+        name: "Vedanta Ltd",
+        
+    },
+    {
+        id:19,
+        symbol: "BSE:TATASTEEL",
+        name: "Tata Steel Limited Fully Paid Ord. Shrs",
+        
+    },
+    {
+        id:20,
+        symbol: "BSE:ITC",
+        name: "ITC Ltd",
+        
+    },
+    {
+        id:21,
+        symbol: "BSE:INFY",
+        name: "Infosys Ltd",
+        
     }
 
 ];

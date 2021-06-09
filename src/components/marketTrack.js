@@ -7,7 +7,7 @@ import Chart from './chart';
 import Loading from './Loader';
 import StockTable from '../StockManagement/StockTable';
 import ManageNews from '../NewsManagement/ManageNews';
-
+import NewsUtils from '../NewsManagement/sampleNewsUtils';
 
 
 class MarketTrack extends Component {
@@ -15,6 +15,7 @@ class MarketTrack extends Component {
         super(props);
         this.state={
             Stock:StockUtils,
+            News:NewsUtils,
             x_val:[],
             y_val:[],
             closed:[],
@@ -26,10 +27,11 @@ class MarketTrack extends Component {
             articles:[],                                                                
             presetLow:[],
             stock_Name:'FB',
-            initial_Name:'Facebook Inc.',
+            initial_Name:'FB',
             loading:true,
             presentDate:'',
             stockWhole:[],
+            display_name:'Facebook Inc.'
             
         }
 
@@ -49,17 +51,27 @@ class MarketTrack extends Component {
         var symbol=event.target.value;
         console.log('what',symbol);
         var i;
+        var k;
         var index;
         for(i=0;i<symbol.length;i++){
             if(symbol[i]==='-'){
-                index=i;
-                break;
+                if(symbol[i+4]===':'){
+                    k=i+4;
+                    break;
+                }
+                else{
+                    index=i;
+                    k=i
+                    break;
+                }
+                
             }
         }
         //callback function......
         this.setState({
-            stock_Name: symbol.substring(index+1),
-            initial_Name: symbol.substring(0,index)
+            stock_Name: symbol.substring(i+1),
+            display_name:symbol.substring(0,i),
+            initial_Name: symbol.substring(k+1)
         }, () => {
             this.Stocker()
             this.getNews()
@@ -139,7 +151,7 @@ class MarketTrack extends Component {
     getNews(){
         const Stock_Name=this.state.initial_Name;
         console.log('Given News Name::',Stock_Name);
-        let API_Call=`https://gnews.io/api/v4/search?q=${this.state.stock_Name}&country=us&token=1a09b0dcb1c66a5b7f6e463a0f17aa60`;
+        let API_Call=`https://gnews.io/api/v4/search?q=${Stock_Name}&country=us&token=1a09b0dcb1c66a5b7f6e463a0f17aa60`;
         console.log("myAPI",API_Call)
 
         fetch(API_Call)
@@ -153,14 +165,15 @@ class MarketTrack extends Component {
                     this.setState({
                         articles: data.articles
                     })
-                    .catch((error) => {
-                        // Handle the error
-                        console.log(error);
-                        this.setState({
-                            articles:['Api','Timed','Out']
-                        })
-                    })
     
+                })
+                .catch((error)=>{
+                    if(error){
+                        console.log("error is coming")
+                        this.setState({
+                            articles:NewsUtils
+                        })
+                    }
                 }
                 )
     
@@ -203,7 +216,7 @@ class MarketTrack extends Component {
                         </div>
 
                     <div className="col-md-5 col-sm-12 ">
-                        <h2 style={{align: 'left' ,color:"white",style:'underline'}}>{this.state.initial_Name}</h2>
+                        <h2 style={{align: 'left' ,color:"white",style:'underline'}}>{this.state.display_name}</h2>
 
                                             <hr  style={{background: "grey",}} />
                                             {loading ?<Loading /> :<Cards  open={this.state.y_val} close={this.state.wholeClose} high={this.state.wholeHigh} low={this.state.wholeLow} date={this.state.presentDate} />}

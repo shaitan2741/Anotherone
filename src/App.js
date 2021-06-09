@@ -6,6 +6,7 @@ import Home from "./components/homePage";
 import { Switch, Route, Redirect,BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import MarketTrack from './components/marketTrack';
+import FooterPage from './components/footer';
 function App() {
   return (
     <BrowserRouter>
@@ -20,7 +21,7 @@ function App() {
     <Route exact path='/marketTrack' component={MarketTrack}/>
     <Redirect to='/about'/>
     </Switch>
-    
+    <FooterPage></FooterPage>
     
   
     </BrowserRouter>

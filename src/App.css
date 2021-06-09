@@ -19,3 +19,11 @@ img{
 .font1{
     font-size: '70vmin';
 }
+.logo2{
+    background-image:url('./assets/Stocker-logos_white.png');
+    background-size: contain;
+    height: 50px;
+    width: 150px;
+    align-content: center;
+    
+}

@@ -10,6 +10,7 @@
     /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
     height: 90vh;
     width: 100%;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
