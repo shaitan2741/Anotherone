@@ -22,19 +22,19 @@ class StockTable extends Component {
                         
                                         <div className="container">
                         {this.props.news.slice(0,noOfNews).map((item,index)=>
-                                        <div className="col" style={{border: "0.2px solid", color: "#ffffff" ,marginBottom: "15px"}}>
-                                            <div className="row">
-                                                <div className="col-sm-4 " >
+                                        <div className="col" style={{border: "0.5px solid", color: "#ffffff" ,marginBottom: "20px"}}>
+                                            <div className="row row-cols-2">
+                                                <div className="col" >
                                                 
-                                                    <img src={item.image} alt=" no image"style={{width:'100%',maxHeight:"100px",objectFit:'contain',verticalAlign: "middle",margin:'10px'}}/>
+                                                    <img src={item.image} alt=" no image"style={{width:"100%",maxHeight:"3vw or 1vmin",objectFit:'contain',padding:'5px',marginBottom:"0px",paddingBottom:"0px"}}/>
                                                 </div>
-                                                        <div className="col-sm-8" style={{}} >
+                                                        <div className="col" style={{}} >
 
-                                                            <h6 style={{color: '#dee4e7', textAlign:'justify',padding:'15px',paddingLeft:'0px'}}>{item.title}</h6>
+                                                            <div style={{color: '#dee4e7',padding:'10px',fontSize:"3vw or 1vmin"}}>{item.title}</div>
 
                                                     
                                                         </div>
-                                                        <hr style={{background:'grey'}} />
+                                                        
                                             </div>
                                         </div>
                                                 )}
