@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e21d9ac.chunk.css",
+    "main.js": "/static/js/main.bc599a1f.chunk.js",
+    "main.js.map": "/static/js/main.bc599a1f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.25de4c47.js",
+    "runtime-main.js.map": "/static/js/runtime-main.25de4c47.js.map",
+    "static/css/2.61b4cb56.chunk.css": "/static/css/2.61b4cb56.chunk.css",
+    "static/js/2.7d21ce8d.chunk.js": "/static/js/2.7d21ce8d.chunk.js",
+    "static/js/2.7d21ce8d.chunk.js.map": "/static/js/2.7d21ce8d.chunk.js.map",
+    "static/js/3.4f8411aa.chunk.js": "/static/js/3.4f8411aa.chunk.js",
+    "static/js/3.4f8411aa.chunk.js.map": "/static/js/3.4f8411aa.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.61b4cb56.chunk.css.map": "/static/css/2.61b4cb56.chunk.css.map",
+    "static/css/main.4e21d9ac.chunk.css.map": "/static/css/main.4e21d9ac.chunk.css.map",
+    "static/js/2.7d21ce8d.chunk.js.LICENSE.txt": "/static/js/2.7d21ce8d.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/Stocker-logos_white.8661bdaa.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25de4c47.js",
+    "static/css/2.61b4cb56.chunk.css",
+    "static/js/2.7d21ce8d.chunk.js",
+    "static/css/main.4e21d9ac.chunk.css",
+    "static/js/main.bc599a1f.chunk.js"
+  ]
+}
